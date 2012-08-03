@@ -1,0 +1,120 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="Weather.About"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <controls:Pivot Title="WEATHER">
+                <controls:PivotItem Header="contact">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="600" />
+                        </Grid.RowDefinitions>
+                        <ScrollViewer HorizontalScrollBarVisibility="Disabled" Grid.Row="0" VerticalScrollBarVisibility="Disabled">
+                            <StackPanel Margin="12,0,0,0">
+                                <TextBlock Text="questions or complaints" 
+                                       FontSize="35"
+                                       FontFamily="Segoe WP SemiLight"
+                                       Margin="0,0,0,0"/>
+                                <TextBlock Text="If there's something going on with Weather that confuses or bothers you, send me an email here."
+                                       TextWrapping="Wrap"
+                                       Margin="0,5,0,5"/>
+                                <HyperlinkButton Click="HyperlinkButton_Click"
+                                             Content="contact support"
+                                             HorizontalAlignment="Left"
+                                             Margin="-12,0,0,0"
+                                             FontSize="20"/>
+
+
+                                <TextBlock Text="suggestions or how-ya-doin" 
+                                       FontSize="35"
+                                       FontFamily="Segoe WP SemiLight"
+                                       Margin="0,30,0,0"/>
+                                <TextBlock Text="If there's something you'd really love to see from me or Weather, or if you'd just like to say Hi, shoot me an email here." 
+                                       TextWrapping="Wrap"
+                                       Margin="0,5,0,5"/>
+                                <HyperlinkButton Click="HyperlinkButton_Click_1"
+                                             Content="contact me"
+                                             HorizontalAlignment="Left"
+                                             Margin="-12,0,0,0"
+                                             FontSize="20"/>
+
+
+                                <HyperlinkButton Content="rate + review"
+                                             HorizontalAlignment="Left"
+                                             FontSize="35"
+                                             Margin="-12,30,0,0"
+                                             FontFamily="Segoe WP SemiLight"
+                                             Click="HyperlinkButton_Click_2"/>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </Grid>
+                </controls:PivotItem>
+                <controls:PivotItem Header="about">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="525" />
+                            <RowDefinition Height="75"/>
+                        </Grid.RowDefinitions>
+                        <ScrollViewer HorizontalScrollBarVisibility="Disabled" Grid.Row="0" VerticalScrollBarVisibility="Disabled">
+                            <StackPanel Margin="12,0,0,0">
+                                <TextBlock Text="Weather v1.0"
+                                           FontSize="35"
+                                           FontFamily="Segoe WP SemiLight"/>
+                                <TextBlock Text="Back-end code by: Isaac Reynolds"
+                                           TextWrapping="Wrap"
+                                           Margin="0,30,0,0"/>
+                                <TextBlock Text="Front-end UI design by: Isaac Reynolds"
+                                           TextWrapping="Wrap"
+                                           Margin="0,0,0,0"/>
+                                <TextBlock Text="Isaac, a university student, is the one man in the one-man crew of AppsForMe. He loves the Windows Phone platform, and enjoys basic software engineering and UI design."
+                                           TextWrapping="Wrap"
+                                           Margin="0,30,0,0"/>
+                            </StackPanel>
+                        </ScrollViewer>
+                        <StackPanel Orientation="Vertical" Grid.Row="1">
+                            <TextBlock Text="Data from WeatherUnderground.com" FontSize="16" Height="25"/>
+                            <Image Source="/Images/wundergroundLogo_white_horz.jpg" 
+                                   Width="183" 
+                                   Height="32" 
+                                   Opacity="0.5"
+                                   HorizontalAlignment="Left"/>
+                        </StackPanel>
+                    </Grid>
+                </controls:PivotItem>
+            </controls:Pivot>
+        </Grid>
+    </Grid>
+ 
+    <!--Sample code showing usage of ApplicationBar-->
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Button 1"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
+                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
+
+</phone:PhoneApplicationPage>

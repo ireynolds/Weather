@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Deployment xmlns="http://schemas.microsoft.com/windowsphone/2009/deployment" AppPlatformVersion="7.1">
+  <App xmlns="" ProductID="{338eeca9-d3c4-4cd7-ad08-1282c650b214}" Title="Weather" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Weather author" Description="Sample description" Publisher="Weather">
+    <IconPath IsRelative="true" IsResource="false">Application_IconImage_62x62.png</IconPath>
+    <Capabilities>
+      <Capability Name="ID_CAP_NETWORKING" />
+    </Capabilities>
+    <Tasks>
+      <DefaultTask Name="_default" NavigationPage="MainPage.xaml" />
+    </Tasks>
+    <Tokens>
+      <PrimaryToken TokenID="WeatherToken" TaskName="_default">
+        <TemplateType5>
+          <BackgroundImageURI IsRelative="true" IsResource="false">Application_TileImage_173x173.png</BackgroundImageURI>
+          <Count>0</Count>
+          <Title>Weather</Title>
+        </TemplateType5>
+      </PrimaryToken>
+    </Tokens>
+  </App>
+</Deployment>
