@@ -40,8 +40,7 @@ namespace Weather
             this.Forecasts = new ObservableCollection<CurrentWeatherViewModel>();
             myCities = (Application.Current as App).myCities;
 
-            if (myCities.Count > 0)
-                currCity = myCities.ElementAt(0);
+            currCity = myCities.ElementAt(0);
 
             isOldInstance = false;
         }
@@ -53,7 +52,6 @@ namespace Weather
 
             // load data from isolated storage
             //LoadOldData();
-
 
             // search for new data
             if (NetworkInterface.GetIsNetworkAvailable())
@@ -73,7 +71,7 @@ namespace Weather
             BackgroundWorker bw1 = new BackgroundWorker();
             bw1.DoWork += new DoWorkEventHandler(bw_DoWork);
             bw1.RunWorkerAsync(new object[] { ForecastListBox, 
-                                              new Uri("http://api.wunderground.com/api/d359263cceaa5dd7/forecast7day" + currCity.l + ".json"),
+                                              new Uri("http://api.wunderground.com/api/d359263cceaa5dd7/forecast10day" + currCity.l + ".json"),
                                               CallType.SevenDay,
                                               ProgressBarForecast
                                             });
@@ -169,9 +167,14 @@ namespace Weather
         private void ApplicationBar_StateChanged(object sender, Microsoft.Phone.Shell.ApplicationBarStateChangedEventArgs e)
         {
             if (e.IsMenuVisible)
-                (sender as ApplicationBar).Opacity = 0.999;
+                (sender as ApplicationBar).Opacity = 1;
             else if (!e.IsMenuVisible)
-                (sender as ApplicationBar).Opacity = 0.5;
+                (sender as ApplicationBar).Opacity = 0;
+        }
+
+        private void myPanorama_Tap(object sender, GestureEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/AllCities.xaml", UriKind.Relative));
         }
     }
 

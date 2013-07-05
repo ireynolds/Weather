@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
+using Weather.ViewModels;
 
 namespace Weather
 {
@@ -28,7 +29,8 @@ namespace Weather
             if (isOldInstance)
                 throw new ApplicationShouldExit();
             
-            if ((App.Current as App).myCities == null)
+            List<City> myCities = (App.Current as App).myCities;
+            if (myCities == null || myCities.Count == 0)
             {
                 NavigationService.Navigate(new Uri("/AddCity.xaml", UriKind.Relative));
             }
@@ -40,6 +42,12 @@ namespace Weather
             isOldInstance = true;
 
             base.OnNavigatedTo(e);
+        }
+
+        protected override void OnNavigatedFrom(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+            NavigationService.RemoveBackEntry();
         }
     }
 }

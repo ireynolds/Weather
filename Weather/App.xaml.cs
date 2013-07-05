@@ -107,7 +107,6 @@ namespace Weather
 
             myCities = (List<City>)IsolatedStorageSettings.ApplicationSettings["MyCities"];
 
-
             IsolatedStorageSettings.ApplicationSettings.Save();
         }
 

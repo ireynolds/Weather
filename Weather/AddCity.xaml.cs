@@ -68,5 +68,11 @@ namespace Weather
                 myGetter.TryGetWeather(new Uri("http://autocomplete.wunderground.com/aq?query=" + s + "&format=JSON"));
             }
         }
+
+        protected override void OnNavigatedFrom(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+            NavigationService.RemoveBackEntry();
+        }
     }
 }

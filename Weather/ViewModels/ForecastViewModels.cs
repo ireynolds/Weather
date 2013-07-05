@@ -154,8 +154,11 @@ namespace Weather
         {
             get
             {
-                if (_weekday.Equals(DateTime.Now.AddDays(1).DayOfWeek.ToString().ToLower()))
+                if (DayNumber.Equals(DateTime.Now.AddDays(1).Day))
                     return "tomorrow";
+
+                if (DayNumber.Equals(DateTime.Now.AddDays(2).Day))
+                    return "the day after tomorrow";
 
                 return (_weekday + " the " + DayNumber + GetSuffix(this.DayNumber)).ToLower();
             }
