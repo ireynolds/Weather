@@ -42,6 +42,13 @@ namespace Weather
 
         private void CitiesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (CitiesListBox.SelectedIndex == -1 && PageMode == EditMode.Edit)
+            {
+                ApplicationBar.Buttons.Remove(deleteButton);
+                ApplicationBar.Buttons.Remove(defaultButton);
+                PageMode = EditMode.Static;
+            }
+
             if (CitiesListBox.SelectedIndex == -1)
                 return;
 
@@ -52,8 +59,10 @@ namespace Weather
                 if (defaultButton == null)
                     BuildDefaultButton();
 
-                ApplicationBar.Buttons.Add(deleteButton);
-                ApplicationBar.Buttons.Add(defaultButton);
+                if (!ApplicationBar.Buttons.Contains(deleteButton))
+                    ApplicationBar.Buttons.Add(deleteButton);
+                if (!ApplicationBar.Buttons.Contains(defaultButton))
+                    ApplicationBar.Buttons.Add(defaultButton);
             }
             else if (PageMode == EditMode.Static)
             {
@@ -104,6 +113,7 @@ namespace Weather
             (App.Current as App).myCities.Remove(toDelete);
 
             this.myCities = new ObservableCollection<City>((App.Current as App).myCities);
+            CitiesListBox.DataContext = this.myCities;
         }
 
         public void button2_click(object sender, EventArgs e)
@@ -118,6 +128,7 @@ namespace Weather
             MessageBox.Show(defaultCity.ColloquialName + " is now your default city.", "Operation successful", MessageBoxButton.OK);
 
             this.myCities = new ObservableCollection<City>((App.Current as App).myCities);
+            CitiesListBox.DataContext = this.myCities;
         }
 
         public void button3_click(object sender, EventArgs e)

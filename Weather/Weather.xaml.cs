@@ -172,8 +172,9 @@ namespace Weather
                 (sender as ApplicationBar).Opacity = 0;
         }
 
-        private void myPanorama_Tap(object sender, GestureEventArgs e)
+        private void ApplicationBarMenuItem_Click_1(object sender, EventArgs e)
         {
+            myCities.Remove(currCity);
             NavigationService.Navigate(new Uri("/AllCities.xaml", UriKind.Relative));
         }
     }

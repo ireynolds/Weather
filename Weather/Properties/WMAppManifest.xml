@@ -2,7 +2,7 @@
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US" />
   <App xmlns="" ProductID="{67e1e4bd-8e8c-4976-9f93-78e8f6a77098}" Title="Weather" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Weather author" Description="Sample description" Publisher="Weather" PublisherID="{5dc62159-7add-450e-9315-84e649aef509}">
-    <IconPath IsRelative="true" IsResource="false">Application_IconImage_62x62.png</IconPath>
+    <IconPath IsRelative="true" IsResource="false">ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
     </Capabilities>
@@ -12,14 +12,18 @@
     <Tokens>
       <PrimaryToken TokenID="WeatherToken" TaskName="_default">
         <TemplateFlip>
-          <SmallImageURI IsResource="false" IsRelative="true">Application_TileImage_173x173.png</SmallImageURI>
+          <SmallImageURI IsResource="false" IsRelative="true">ApplicationIcon.png</SmallImageURI>
           <Count>0</Count>
-          <BackgroundImageURI IsResource="false" IsRelative="true">Application_TileImage_173x173.png</BackgroundImageURI>
+          <BackgroundImageURI IsResource="false" IsRelative="true">ApplicationIcon.png</BackgroundImageURI>
           <Title>Weather</Title>
-          <BackContent></BackContent>
-          <BackBackgroundImageURI></BackBackgroundImageURI>
-          <BackTitle></BackTitle>
-          <DeviceLockImageURI></DeviceLockImageURI>
+          <BackContent>
+          </BackContent>
+          <BackBackgroundImageURI>
+          </BackBackgroundImageURI>
+          <BackTitle>
+          </BackTitle>
+          <DeviceLockImageURI>
+          </DeviceLockImageURI>
           <HasLarge>false</HasLarge>
         </TemplateFlip>
       </PrimaryToken>

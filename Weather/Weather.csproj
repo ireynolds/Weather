@@ -162,8 +162,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Application_IconImage_62x62.png" />
-    <Resource Include="Application_TileImage_173x173.png" />
+    <Content Include="ApplicationIcon.png" />
     <Content Include="Images\appbar.add.rest.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

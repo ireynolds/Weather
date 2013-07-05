@@ -41,7 +41,7 @@
                                    TextWrapping="NoWrap"
                                    FontFamily="Segoe WP Light"/>
                         <StackPanel Orientation="Vertical"
-                                    Margin="24,0,0,0">
+                                    Margin="24,-8,0,0">
                             <TextBlock Text="{Binding Condition}" 
                                        FontSize="75"
                                        TextWrapping="NoWrap"
@@ -129,6 +129,7 @@
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" Mode="Minimized" Opacity="0" StateChanged="ApplicationBar_StateChanged">
             <shell:ApplicationBarIconButton IconUri="/Images/appbar.column.one.png" Text="cities" Click="ApplicationBarIconButton_Click"/>
             <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="delete" Click="ApplicationBarMenuItem_Click_1" />
                 <shell:ApplicationBarMenuItem Text="refresh" Click="ApplicationBarIconButton_Click_1"/>
                 <shell:ApplicationBarMenuItem Text="about" Click="ApplicationBarMenuItem_Click"/>
             </shell:ApplicationBar.MenuItems>
