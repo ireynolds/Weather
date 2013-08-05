@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
@@ -239,23 +240,20 @@ namespace Weather
             return value;
         }
 
-        public void TryGetWeather(Uri source)
+        public async void TryGetWeather(Uri source)
         {
             HttpWebRequest myHttpWebRequest1 = (HttpWebRequest)WebRequest.Create(source);
 
             RequestState myRequestState = new RequestState();
             myRequestState.request = myHttpWebRequest1;
 
-            IAsyncResult result =
-                (IAsyncResult)myHttpWebRequest1.BeginGetResponse(new AsyncCallback(RespCallback), myRequestState);
+            var task = myHttpWebRequest1.GetResponseAsync();
+            await RespCallback(task, myRequestState).ConfigureAwait(false);
         }
 
-        private void RespCallback(IAsyncResult asynchronousResult)
+        private async Task RespCallback(Task<WebResponse> task, RequestState myRequestState)
         {
-            // State is asynchronous
-            RequestState myRequestState = (RequestState)asynchronousResult.AsyncState;
-            HttpWebRequest myHttpWebRequest2 = myRequestState.request;
-            myRequestState.response = (HttpWebResponse)myHttpWebRequest2.EndGetResponse(asynchronousResult);
+            myRequestState.response = (HttpWebResponse) await task.ConfigureAwait(false);
 
             // Read the response into a Stream object
             Stream responseStream = myRequestState.response.GetResponseStream();
