@@ -33,6 +33,10 @@ namespace Weather
 
     public partial class App : Application
     {
+        // The magnitude of my not caring that this "secret" API key is exposed
+        // would truly shock you. It's a free account and they don't have my
+        // billing information--the worst that happens is they shut down my
+        // account and my 0 users complain to me about it.
         protected const string WUNDERGROUND_APPID = "d359263cceaa5dd7";
         protected const string SEATTLE_WOEID = "2490383";
         public List<City> myCities;
